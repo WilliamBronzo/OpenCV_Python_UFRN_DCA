@@ -1,6 +1,5 @@
 import sys
 import cv2 as cv
-# import numpy as np
 
 
 def regiao_funcao(img, p1, p2, fun):

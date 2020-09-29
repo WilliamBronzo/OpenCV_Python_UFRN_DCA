@@ -2,12 +2,12 @@
 Repositório contendo a lista e programas de listas do professor Agostinho Brito.
 
 ## Exercícios:
-    - ### Lista:
+- ### Lista:
 
-    - ### Atividades após término da lista:
-        - [ ] Finalizar a lista.
-        - [ ] Atualizar a lista.
-        - [ ] Revisar a lista.
-        - [ ] Explicar "trecho chave" da lista.
-        - [ ] Melhorar a apresentação do GitHub.
-        - [ ] Verificar termos legais.
+- ### Atividades após término da lista:
+    - [ ] Finalizar a lista.
+    - [ ] Atualizar a lista.
+    - [ ] Revisar a lista.
+    - [ ] Explicar "trecho chave" da lista.
+    - [ ] Melhorar a apresentação do GitHub.
+    - [ ] Verificar termos legais.

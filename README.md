@@ -5,7 +5,7 @@ Repositório contendo a lista e programas de listas do professor Agostinho Brito
 - ### Exercício 2.2:
   - a) Esse programa deverá solicitar ao usuário as coordenadas de dois pontos P1 e P2 localizados dentro dos limites do tamanho da imagem e exibir que lhe for fornecida. Entretanto, a região definida pelo retângulo de vértices opostos definidos pelos pontos P1 e P2 será exibida com o negativo da imagem na região correspondente.
   - b) Seu programa deverá trocar os quadrantes em diagonal na imagem.
-  ---
+  
 Solução:
 
 - ### Atividades após término da lista:

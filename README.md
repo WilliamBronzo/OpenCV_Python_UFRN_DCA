@@ -107,7 +107,7 @@ python exercicio_2_2.py lena.jpg
 Entradas de usuario:  
 100 200  
 300 400  
-100 200  
+100 300  
   
 Imagem da saidas:  
 ![Imagem do Exercício 2.2](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-01_18-29-38.png)

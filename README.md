@@ -8,10 +8,6 @@ Repositório contendo a lista e programas de listas do professor Agostinho Brito
   
 Solução:
 
-- ### Atividades após término da lista:
-    - [ ] Finalizar a lista.
-    - [ ] Atualizar a lista.
-    - [ ] Revisar a lista.
-    - [ ] Explicar "trecho chave" da lista.
-    - [ ] Melhorar a apresentação do GitHub.
-    - [ ] Verificar termos legais.
+Para inverter as core de uma imagem em escala cinza com profundidade de cor com 8 bits (1 byte) que varia de 0 a 255 (UInt8) deve-se fazer a seguinte formula no pixel em questão: 255-x onde x é o valor deste pixel.
+
+Segue a função:

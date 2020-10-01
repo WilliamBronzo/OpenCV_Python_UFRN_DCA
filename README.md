@@ -55,17 +55,17 @@ ponto2 = ponto2[0:2]
 O *imput* é a função responsavel por receber a entrada do usuario em string, logo requer tratamento de dados, o tratamento da linha seguinte é feita um *split* da string e para cada elemento condicionado a *isdigit()* sera retornada a *int()* para conversão, isso ira torna valido ou invalido caso os numeros sejam 2 na linha subsequentemente.
   
 Em outras palavras é valido:  
-"100 200"
-"Ponto 100 e 200"
-"Texto qualquer desde que não tenha numero. Um numero 200 a ate 300 é o ponto A. E outro texto qualque e este pode ter numero mas será ignorado." (Linha unica.)
+"100 200"  
+"Ponto 100 e 200"  
+"Texto qualquer desde que não tenha numero. Um numero 200 a ate 300 é o ponto A. E outro texto qualque e este pode ter numero mas será ignorado." (Linha unica.)  
   
 É invalido:
-"Ponto 100,200"
-"(100,200)"
-"100.200"
-"1,2 3,4"
-"100.0 200.0"
-"100,0 200,0"
+"Ponto 100,200"  
+"(100,200)"  
+"100.200"  
+"1,2 3,4"  
+"100.0 200.0"  
+"100,0 200,0"  
   
 A função responsavel por inverter a região é:
 ```Python

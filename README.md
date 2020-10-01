@@ -23,4 +23,5 @@ def regiao_funcao(img, p1, p2, fun):
 
     return img_ret
 ```
-Explicando:
+Explicando a função:  
+Entrada

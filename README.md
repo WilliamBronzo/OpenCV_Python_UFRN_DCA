@@ -11,7 +11,7 @@ Solução:
 Para inverter as core de uma imagem em escala cinza com profundidade de cor com 8 bits (1 byte) que varia de 0 a 255 (UInt8) deve-se fazer a seguinte formula no pixel em questão: 255-x onde x é o valor deste pixel.
 
 Segue a função:
-
+```Python
 def regiao_funcao(img, p1, p2, fun):
     img_ret = img.copy()
 
@@ -22,5 +22,5 @@ def regiao_funcao(img, p1, p2, fun):
 
 
     return img_ret
-
+```
 Explicando:

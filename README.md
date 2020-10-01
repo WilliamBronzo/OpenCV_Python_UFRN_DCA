@@ -11,4 +11,15 @@ Solução:
 Para inverter as core de uma imagem em escala cinza com profundidade de cor com 8 bits (1 byte) que varia de 0 a 255 (UInt8) deve-se fazer a seguinte formula no pixel em questão: 255-x onde x é o valor deste pixel.
 
 Segue a função:
-https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/51186356a5f259040a5c779d5dc47162f29b6428/C%C3%B3digo/exercicio_2_2.py#L5-L12
+'''
+def regiao_funcao(img, p1, p2, fun):
+    img_ret = img.copy()
+
+
+    for i in range(min(p1[0], p2[0]), max(p1[0], p2[0])):
+        for j in range(min(p1[1], p2[1]), max(p1[1], p2[1])):
+            img_ret[i, j] = fun(img[i, j])
+
+
+    return img_ret
+'''

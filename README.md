@@ -100,10 +100,11 @@ O programa completo:
 https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/51186356a5f259040a5c779d5dc47162f29b6428/C%C3%B3digo/exercicio_2_2.py
   
 O uso do programa:
+  
 Entradas de usuario:  
 100 200  
 300 400  
 100 200  
   
-Saidas:  
-Imagems:
+Imagem da saidas:  
+![Imagem do Exercício 2.2](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-01_18-29-38.png)

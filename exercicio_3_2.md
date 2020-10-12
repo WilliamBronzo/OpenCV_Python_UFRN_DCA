@@ -13,7 +13,7 @@ Primeiramente a imagem do exemplo não é complexo o suficiente para ter mais qu
  - Usando o Threshold: Cores > Threshold. Tambem vai com o gosto de cada um.
  - Exporte a imagem. (Sera imagem cinza)  
 
-OBS.: Nas duas ultimas configurações a pessoa deve ter ideia que as imagem deve ser desconexa uma da outra e deve ser bem variado. Tambem tem outras formas de gerar a imagem, é a unica regra, absoluta, nesse pequeno tutorial é de gerar a image com tonalidade cinza, ou seja, a primeira instrução. Afinal com as cores em RGB essas cores podem atrapalhar durante o processamento.  
+OBS.: Nas duas ultimas configurações a pessoa deve ter ideia que as imagem deve ser desconexa uma da outra e deve ser bem variado. Tambem tem outras formas de gerar a imagem. E a unica regra, **absoluta**, nesse pequeno tutorial é de gerar a image com tonalidade cinza, ou seja, a primeira instrução. Afinal com as cores em RGB essas cores podem atrapalhar durante o processamento.  
 
 Imagem resultante:
 

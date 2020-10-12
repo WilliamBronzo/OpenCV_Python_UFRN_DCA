@@ -64,3 +64,75 @@ def colorir_lista_fun(img, lista_pos, fun):
 Cujo o objetivo é nada mais que preencher nas posições especificar com seus respectivos indices modulado em uma função.
 
 Segue a imagem da saida:
+![Imagem labeling_pos](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-12_18-39-30.png)
+
+Apesar de estar usando preto no preenchimento devido a função usada (`lambda x: x % 255`), onde varia de 0 a 255, pode ser alterada sem problemas, pois o que é usado é as posições para aplicar a coloração.
+
+Função para remover bordas:
+```Python
+def remove_bordas(img, pixel_ref=255):
+    tamanho = img.shape
+    borda = (tamanho[0] - 1, tamanho[1] - 1)
+    img_ret = img.copy()
+
+    for i in range(tamanho[0]):
+        if img_ret[i, 0] == pixel_ref:
+            cv.floodFill(img_ret, None, (0, i), 0)
+        if img_ret[i, borda[1]] == pixel_ref:
+            cv.floodFill(img_ret, None, (borda[1], i), 0)
+
+    for j in range(tamanho[1]):
+        if img_ret[0, j] == pixel_ref:
+            cv.floodFill(img_ret, None, (j, 0), 0)
+        if img_ret[borda[0], j] == pixel_ref:
+            cv.floodFill(img_ret, None, (j, borda[0]), 0)
+
+    return img_ret
+```
+Esta função vare as bordas e toda vez que encontra um pixel de cor de referencia, pinta de preto, como são 4 bordas, 2 horizontais e 2 verticais, são 4 condições e 2 loops. E esta função retorna a imagem com os objetos nas bordas pintado de preto `return img_ret`.
+
+Aprimorando a função `labeling_pos(img)` para detectar buracos:
+
+```Python
+def labeling_pos_ref(img, pixel_ref=255):
+    tamanho = img.shape
+    imagem_temp = remove_bordas(img)
+
+    cv.floodFill(imagem_temp, None, (0, 0), 32)
+
+    p_bolha = []
+    p_bolha_de_bolha = []
+    p_anterior = (0, 0)
+    for i in range(tamanho[0]):
+        for j in range(tamanho[1]):
+            if imagem_temp[i, j] == pixel_ref:
+                cv.floodFill(imagem_temp, None, (j, i), 64)
+                p_bolha.append((j, i))
+            if imagem_temp[i, j] == 0:
+                cv.floodFill(imagem_temp, None, (j, i), 128)
+                cv.floodFill(imagem_temp, None, p_anterior, 128)
+                p_bolha_de_bolha.append((j, i))
+            p_anterior = (j, i)
+
+    return imagem_temp, p_bolha, p_bolha_de_bolha
+```
+O fundo pode ser confundido com o buraco das bolhas então a função pinta de cinza 32 `cv.floodFill(imagem_temp, None, (0, 0), 32)`, garantido pela função `remove_bordas(img)`. a imagem terá 3 cores cinzas, 32 o fundo, 255 as bolhas, 0 os buracos das bolhas, então no loop do labeling, terá 2 condições, caso encontre uma bolha e outro caso encontre um buraco:
+
+```Python
+if imagem_temp[i, j] == pixel_ref:
+    cv.floodFill(imagem_temp, None, (j, i), 64)
+    p_bolha.append((j, i))
+```
+Igual ao `labeling_pos(img)` onde encontra a bolha e pinta de cinza 64
+
+```Python
+if imagem_temp[i, j] == 0:
+    cv.floodFill(imagem_temp, None, (j, i), 128)
+    cv.floodFill(imagem_temp, None, p_anterior, 128)
+    p_bolha_de_bolha.append((j, i))
+```
+Parecido com `labeling_pos(img)` mas a diferença é a checagem `imagem_temp[i, j] == 0` que checa se é preto, e a outra diferença é que se pinta com cinza o buraco e a bolha `cv.floodFill(imagem_temp, None, (j, i), 128)`(buraco) e `cv.floodFill(imagem_temp, None, p_anterior, 128)` (Bolha). Adiciona o buraco como a posição encontrada `p_bolha_de_bolha.append((j, i))` mas como nome diferente.
+
+Para saber se é buraco ou bolha a função deve guardar o pixel anterior do loop `p_anterior = (j, i)`, onde no final do loop se guarda este valor para a proxima interação.
+
+Imagem da saida:

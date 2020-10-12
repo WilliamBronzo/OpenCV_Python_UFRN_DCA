@@ -66,7 +66,7 @@ Cujo o objetivo é nada mais que preencher nas posições especificar com seus r
 Segue a imagem da saida:
 ![Imagem labeling_pos](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-12_18-39-30.png)
 
-Apesar de estar usando preto no preenchimento devido a função usada (`lambda x: x % 255`), onde varia de 0 a 255, pode ser alterada sem problemas, pois o que é usado é as posições para aplicar a coloração.
+Apesar de estar usando preto no preenchimento devido a função usada (`lambda x: x % 255`), onde varia de 0 a 255, pode ser alterada sem problemas, pois o que é usado é os indices para aplicar a coloração e as posições é o retorno da função não a imagem.
 
 Função para remover bordas:
 ```Python
@@ -135,5 +135,29 @@ Parecido com `labeling_pos(img)` mas a diferença é a checagem `imagem_temp[i, 
 
 Para saber se é buraco ou bolha a função deve guardar o pixel anterior do loop `p_anterior = (j, i)`, onde no final do loop se guarda este valor para a proxima interação.
 
+Como a função `labeling_pos_ref(img, pixel_ref=255)` esta retornando `return imagem_temp, p_bolha, p_bolha_de_bolha`, é posivel visualizar com clareza o que bolha sem buraco e bolha com buraco, mas o interese é as posições pois é por ele que se pode saber quais e quantos são.
+
+```Python
+img3, bolha, bolha_de_bolha = labeling_pos_ref(img)
+
+print('\n\nExercicio 3.2 B:')
+print(f'\nNumero de bolhas: {len(bolha)}\nPosições:\n{bolha}')
+print(f'\nNumero de bolhas de bolha: {len(bolha_de_bolha)}\nPosições:\n{bolha_de_bolha}')
+
+cv.imshow('Exercicio 3.2 B', img3)
+```
+A imagem 3 de retorno `img3` não é a resposta mas a saida do programa `bolha` e `bolha_de_bolha`. Onde é a posição da bolha e a posição do buraco em que pode ser pintada pela função `colorir_lista_fun(img, lista_pos, fun)`, mas a imagem 3 é um bom classificador de bolha e bolhas com bruracos (bolha de bolha).
+
 Imagem da saida:
-[Imagem labeling_pos_ref](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-12_19-15-16.png)
+![Imagem labeling_pos_ref](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-12_19-15-16.png)
+
+Concluindo. Tirando as bolhas que tocam a borda tem exatamente 468 Bolhas, dentre estas, apenas 268 Bolhas tem buracos. Então guardas essas posições para pintar depois aproveita mais a memoria do computador em vez de usar as cores dos pixel em escala de cinza com 1 Bytes (8 bits). 
+
+Caso queira saber quanto itens suporta até o python der problema é so usar:
+```
+import sys
+print(sys.maxsize)
+```
+e pegar esse valor e dividir pelo tamanho do objeto que vai ser usado para quardar as posições `sys.getsizeof((x,y))` uma tupla.
+
+No meu computador 59652323 itens podem ser armazenados como posições, mas na imagem (1920x1080) pode ter no maximo 2073600 pixels, então não existe problemas a respeito a memoria em relação a imagem. Mas caso use em algum sistema mais limitado isso deve ser levado em consideração.

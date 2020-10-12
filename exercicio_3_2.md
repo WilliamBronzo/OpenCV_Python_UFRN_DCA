@@ -21,7 +21,7 @@ Imagem resultante:
 
 Como é observado a imagem acima, existem bastante objetos e provavelmente tem mais que 255 objetos, onde o olho e mentes humanas não coseguem com facilidades contas em curto espaço de tempo.
 
-Refatorar (Refazer o programa), do labeling da questão:
+Refatorar (Refazer o programa), do labeling da questão, a função `labeling_pos(img, pixel_ref=255)` (labeling posição):
 ```Python
 def labeling_pos(img, pixel_ref=255):
     tamanho = img.shape
@@ -91,7 +91,7 @@ def remove_bordas(img, pixel_ref=255):
 ```
 Esta função vare as bordas e toda vez que encontra um pixel de cor de referencia, pinta de preto, como são 4 bordas, 2 horizontais e 2 verticais, são 4 condições e 2 loops. E esta função retorna a imagem com os objetos nas bordas pintado de preto `return img_ret`.
 
-Aprimorando a função `labeling_pos(img)` para detectar buracos:
+Aprimorando a função `labeling_pos(img)` para detectar buracos `labeling_pos_ref(img, pixel_ref=255)` (labeling posição refatorado):
 
 ```Python
 def labeling_pos_ref(img, pixel_ref=255):
@@ -136,3 +136,4 @@ Parecido com `labeling_pos(img)` mas a diferença é a checagem `imagem_temp[i, 
 Para saber se é buraco ou bolha a função deve guardar o pixel anterior do loop `p_anterior = (j, i)`, onde no final do loop se guarda este valor para a proxima interação.
 
 Imagem da saida:
+[Imagem labeling_pos_ref](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-12_19-15-16.png)

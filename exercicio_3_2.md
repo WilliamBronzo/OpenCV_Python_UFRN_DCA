@@ -161,3 +161,6 @@ print(sys.maxsize)
 e pegar esse valor e dividir pelo tamanho do objeto que vai ser usado para quardar as posições `sys.getsizeof((x,y))` uma tupla.
 
 No meu computador 59652323 itens podem ser armazenados como posições, mas na imagem (1920x1080) pode ter no maximo 2073600 pixels, então não existe problemas a respeito a memoria em relação a imagem. Mas caso use em algum sistema mais limitado isso deve ser levado em consideração.
+
+Codigo Final:  
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicios_3_2.py

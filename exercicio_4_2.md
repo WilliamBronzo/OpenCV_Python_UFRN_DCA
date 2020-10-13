@@ -76,6 +76,16 @@ Janelas:
 "Histogram 2": exemplo da função `gerar_img_histograma_colorido(img, (256, 100))`.(O que vai ser usado.)  
 "lena.png COR": imagem de entrada.  
 
+Função decididora cujo objetivo é fazer histograma independentemente do tipo de imagem (Cinza ou RGB).
+```Python
+def gerar_img_histograma_any(img, tamanho):
+    if len(img.shape) == 3:
+        return gerar_img_histograma_colorido(img, tamanho)
+    if len(img.shape) == 2:
+        return gerar_img_histograma(img, tamanho)
+```
+
+
 
 Criando a função alarme:
 ```Python
@@ -124,5 +134,53 @@ def alarme_histogram(img):
             anterior = atual
 ```
 
+É uma reescrita da combinação de outras funções, `gerar_img_histograma_any(...)`, `gerar_img_histograma_colorido(...)`, `gerar_img_histograma_colorido_sequecial(...)`. Utiliza variavel global `anterior = None`, para guardar o dados do histograma anterior.  
 
+```Python
+if anterior is None:
+    anterior = [hist_data_b[:, 0], hist_data_g[:, 0], hist_data_r[:, 0]]
+    atual = [hist_data_b[:, 0], hist_data_g[:, 0], hist_data_r[:, 0]]
+else:
+    atual = [hist_data_b[:, 0], hist_data_g[:, 0], hist_data_r[:, 0]]
+```
+ou
+```Python
+if anterior is None:
+    anterior = [hist_data[:, 0]]
+    atual = [hist_data[:, 0]]
+else:
+    atual = [hist_data[:, 0]]
+```
+Condição da primeira imagem.  
+
+```Python
+valor_b = np.sum(np.abs(atual[0] - anterior[0]))
+valor_g = np.sum(np.abs(atual[1] - anterior[1]))
+valor_r = np.sum(np.abs(atual[2] - anterior[2]))
+
+valor = (valor_r + valor_g + valor_b)
+```
+ou
+```Python
+valor = np.sum(np.abs(atual[0] - anterior[0]))//3
+```
+Calcula a diferença do histograma e soma (divide por 3 errata: deveria ser por 30 pois em escala de cinza os valores do histogramas são altos em relação a de cores), para que se tenha valor significativo da mudança das cores do abiente.  
+
+```Python
+if valor > 1500:
+    print(f'Alarme de histograma!     valor = {valor} > 1500')
+    anterior = atual
+```
+ou
+```Python
+if valor > 15000:
+    print(f'Alarme de histograma!     valor = {valor} > 15000')
+    anterior = atual
+```
+O ultimo trecho de código onde a função retorna na saida do terminal o sinal de alarme e mostra o valor do sinal.  
+
+Apesar de não ter som ou outra forma de alerta, o criterio do alarme é simplismente detectar (Verdadeiro ou Falso), o que facilmente pode ser atraves de retorno da função `return True` caso contrario `return False`, com o fim de didatica, decidi usar a função `print(f'...')` como saida.
+
+Demonstração em video:  
 [Demonstração youtube link](https://www.youtube.com/watch?v=98guReyWq9w&t)
+

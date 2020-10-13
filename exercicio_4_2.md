@@ -177,9 +177,45 @@ if valor > 15000:
     print(f'Alarme de histograma!     valor = {valor} > 15000')
     anterior = atual
 ```
-O ultimo trecho de código onde a função retorna na saida do terminal o sinal de alarme e mostra o valor do sinal.  
+O ultimo trecho de código da função é o tipo de retorno que seria a saida no terminal.  
 
-Apesar de não ter som ou outra forma de alerta, o criterio do alarme é simplismente detectar (Verdadeiro ou Falso), o que facilmente pode ser atraves de retorno da função `return True` caso contrario `return False`, com o fim de didatica, decidi usar a função `print(f'...')` como saida.
+Apesar de não ter som ou outra forma de alerta, o criterio do alarme é simplismente detectar (Verdadeiro ou Falso), o que facilmente pode ser atraves de retorno da função `return True` caso contrario `return False`, com o fim de didatica, decidi usar a função `print(f'...')` como saida.  
+
+O uso em video:  
+```Python
+def main():
+    # cap = cv.VideoCapture('Bird.mp4')
+    cap = cv.VideoCapture('video.mp4')
+    if not cap.isOpened():
+        print('Falha ao abrir o video.')
+        exit(-1)
+    while True:
+        ret, frame = cap.read()
+        if ret:
+            frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+            cv.imshow('Frame', frame)
+
+            histograma = gerar_img_histograma_any(frame, (256, 300))
+            cv.imshow('Histograma', histograma)
+
+            alarme_histogram(frame)
+
+            key = cv.waitKey(15)
+            if key == ord('q'):
+                break
+        else:
+            break
+    cap.release()
+    cv.destroyAllWindows()
+
+
+if __name__ == '__main__':
+    main()
+```
+
+Muito similar ao C++, tem a função `cv.VideoCapture(...)` que gera uma classe `cap` e se tem `cap.read()` para pegar o ret (bool) e o frame (matriz 3D ou 2D), dentro do loop verifica se tem retorno `if ret:`, onde é um boleando de "existencia de video", e com isso a imagem é regerada (regenerada) dentro das janelas do mesmo nome, o que é praticamente um video.  
+
+O fechamento se da por uso do teclado com o botão 'Q' (Minusculo). O fechamento pela janela é problematico devido a natureza do loop e da função `cv.imshow(...)`.  
 
 Demonstração em video:  
 [Demonstração youtube link](https://www.youtube.com/watch?v=98guReyWq9w&t)

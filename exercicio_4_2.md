@@ -220,3 +220,5 @@ O fechamento se da por uso do teclado com o botão 'Q' (Minusculo). O fechamento
 Demonstração em video:  
 [Demonstração youtube link](https://www.youtube.com/watch?v=98guReyWq9w&t)
 
+Codigo Final:
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_4_2.py

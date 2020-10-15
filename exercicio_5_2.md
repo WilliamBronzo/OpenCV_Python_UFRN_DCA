@@ -100,3 +100,8 @@ cv.imshow('Laplaciano do gaussiano', img2)
 Aplica gaussiano e depois o laplaciano como a questão pede.  
 
 Resultado:
+![Imagem 1](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-10-15_15-04-58.png)  
+O calculado o laplaciano do gaussiano é mais escuro do que apenas o laplaciano, porem as linha ficam mais espessas.  
+  
+Codigo final:
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_5_2.py

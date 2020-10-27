@@ -49,7 +49,8 @@ A função requer uma mascara do tamanho da imagem, então o vetor é "esticado"
 mascara = np.repeat(vetor, img.shape[1]).reshape(img.shape[:2])
 ```  
 
-A função cria uma segunda imagem borrada `img2 = cv.GaussianBlur(img, (gauss * 2 + 1, gauss * 2 + 1), 0)`.  
+A função cria uma segunda imagem borrada `img2 = cv.GaussianBlur(img, (gauss * 2 + 1, gauss * 2 + 1), 0)`. Como esta função só aceita valores impares, devido a matriz ter que por obrigação um centro, então é aplicado uma função que retorna valores inerentemente impar `x * 2 + 1` independetemente do valor atribuido.  
+
 A função requer uma outra condição, caso a imagem tenha cor, como a aplicação de mascara será feita pelo Numpy, a hipermatriz deve ser corespodente, então a função é capaz de fazer uma matriz "colorida" `mascara = cv.cvtColor(mascara, cv.COLOR_GRAY2BGR)`.  
  E por final a função faz a aplicação de mascara e o retorna:
  ```Python

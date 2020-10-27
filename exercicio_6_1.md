@@ -29,7 +29,10 @@ def tiltshift(img, x1, x2, d, gauss = 2):
     img_ret = cv.convertScaleAbs(img * mascara + img2 * (1 - mascara))
 
     return img_ret
-```
+```  
+
+Onde x1 e x2 é o limite do boramento, d é a força de decaimento da região borrada, gauss é quanto devera ser borrado a imagem. Todos os valores de entrada exeto a imagem (img), são inteiros.  
+
 Primeiramente o programa gera um vetor com valores de 0 a `img.shape[0]` (Altura da imagem).  
 
 A função do exercicio faz uma divisão de `d` (força de decaimento da região borrada), quando for zero apesar de ter tratamento de erro por divisão de zero por uso de funcoes universais do numpy, neste caso quando fazemdos divisão atravez do uso de um vetor com um valor (array 1D / int), o numpy atribui um valor *not a number* (NaN, Não é um numero), com isso o programa não irá para de funcionar, por algum motivo de alomalia da versão atual do Numpy, Python ou o OpenCV o programa de vez em quando o programa causa erro, como se o programa estivesse usando a divisão global do Python (int / int) que não é esse caso, afina a unica exeção que ocorre é quando a imagem tem altura igual a 1. Então à um tratamento de erro condicionado:

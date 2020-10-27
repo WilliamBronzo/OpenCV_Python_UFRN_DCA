@@ -1,4 +1,4 @@
-# Exercício 5.2:
+# Exercício 6.1:
  - Utilizando o programa exemplos/addweighted.cpp como referência, implemente um programa tiltshift.cpp. Três ajustes deverão ser providos na tela da interface:
    - um ajuste para regular a altura da região central que entrará em foco;
    - um ajuste para regular a força de decaimento da região borrada;

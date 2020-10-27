@@ -106,5 +106,5 @@ O calculado o laplaciano do gaussiano é mais escuro do que apenas o laplaciano,
 Codigo final:
 https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_5_2.py  
 
-Demonstração video do Youtube:
+Demonstração video do Youtube:  
 https://youtu.be/98guReyWq9w

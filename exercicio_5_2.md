@@ -104,4 +104,7 @@ Resultado:
 O calculado o laplaciano do gaussiano é mais escuro do que apenas o laplaciano, porem as linha ficam mais espessas.  
   
 Codigo final:
-https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_5_2.py
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_5_2.py  
+
+Demonstração video do Youtube:
+https://youtu.be/98guReyWq9w

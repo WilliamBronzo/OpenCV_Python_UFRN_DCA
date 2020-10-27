@@ -7,4 +7,4 @@ Repositório contendo a lista e programas de listas do professor Agostinho Brito
 - Exercício 3.2 [Link para Questão](exercicio_3_2.md)
 - Exercício 4.2 [Link para Questão](exercicio_4_2.md)
 - Exercício 5.2 [Link para Questão](exercicio_5_2.md)
-- Exercício 6.1 Em progresso.
+- Exercício 6.1 [Link para Questão](exercicio_6_1.md) Em progresso.

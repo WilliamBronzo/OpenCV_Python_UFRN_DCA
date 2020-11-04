@@ -55,9 +55,53 @@ mascara = np.repeat(vetor, img.shape[1]).reshape(img.shape[:2])
 A função cria uma segunda imagem borrada `img2 = cv.GaussianBlur(img, (gauss * 2 + 1, gauss * 2 + 1), 0)`. Como esta função só aceita valores impares, devido a matriz ter que por obrigação um centro, então é aplicado uma função que retorna valores inerentemente impar `x * 2 + 1` independetemente do valor atribuido.  
 
 A função requer uma outra condição, caso a imagem tenha cor, como a aplicação de mascara será feita pelo Numpy, a hipermatriz deve ser corespodente, então a função é capaz de fazer uma matriz "colorida" `mascara = cv.cvtColor(mascara, cv.COLOR_GRAY2BGR)`.  
- E por final a função faz a aplicação de mascara e o retorna:
- ```Python
- img_ret = cv.convertScaleAbs(img * mascara + img2 * (1 - mascara))
- 
- return img_ret
- ```
+E por final a função faz a aplicação de mascara e o retorna:
+```Python
+img_ret = cv.convertScaleAbs(img * mascara + img2 * (1 - mascara))
+
+return img_ret
+```  
+
+Criação de barra de rolagem, basicamente a invocação do `cv.createTrackbar(...)` apos a criação da janela.  
+
+```Python
+cv.namedWindow('Frame')
+cv.namedWindow('Padrao')
+
+cv.createTrackbar('x1', 'Padrao', 250, 1000, faz_nada)
+cv.createTrackbar('x2', 'Padrao', 490, 1000, faz_nada)
+cv.createTrackbar('d', 'Padrao', 0, 100, faz_nada)
+cv.createTrackbar('gauss', 'Padrao', 20,  100, faz_nada)
+```  
+Observação a função `faz_nada()` tem apenas o objetivo de evitar erro do `cv.createTrackbar(...)` pois é uma exigencia da função mas sua funcionalidade é questionavel. Segue a função `faz_nada()`:  
+```Python
+# Obrigatoriedade da funcao! (Desnecessario!)
+def faz_nada(*args, **kwargs):
+    pass
+```  
+
+Retornar o valor durante o loop:  
+
+```Python
+x1 = cv.getTrackbarPos('x1', 'Padrao')
+x2 = cv.getTrackbarPos('x2', 'Padrao')
+d = cv.getTrackbarPos('d', 'Padrao')
+gauss = cv.getTrackbarPos('gauss', 'Padrao')
+```
+
+Para evitar o slowmotion uma condição é criada e o valor do speed é a quantidade de frames que irá ser descartado:  
+```Python
+if descarte_frame == 0:
+    ...  # Código do loop
+    descarte_frame += 1
+    descarte_frame = descarte_frame % speed
+else:
+    descarte_frame += 1
+    descarte_frame = descarte_frame % speed
+```  
+
+Demonstração video:  
+[Video Editar!] ()
+
+Código final:
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_6_1.py

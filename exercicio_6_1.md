@@ -101,7 +101,7 @@ else:
 ```  
 
 Demonstração video:  
-[Video Editar!] ()
+[Demonstração youtube link](https://youtu.be/uLSrmA1WmDU)
 
 Código final:
 https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_6_1.py

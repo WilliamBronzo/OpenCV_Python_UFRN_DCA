@@ -49,7 +49,7 @@ def bordar_random(img, fundo, fator=20):
 
     return retorno
 ```
-O intuito da função erá pegar os pixels da bordas de forma aleatoria e desenhar um circulo e "Apagar os vizinho" para não desenhar outro circulo na posição similar, por isso o `bordar_random` como não entendo o "conceito de arte pontilhismo" então foi adquirido TODOS os pontos do Canny com fatores diferentes decresentes `for i in range(6, 0, -1)` (Basicamente 6 ate 1 multiplicado por `fator` defaut: 20):  
+O intuito da função erá pegar os pixels da bordas de forma aleatoria e desenhar um circulo e "Apagar os vizinho" para não desenhar outro circulo na posição similar, por isso o `bordar_random` como não entendo o "conceito de arte pontilhismo" então foi adquirido TODOS os pontos do Canny com fatores diferentes decrescentes `for i in range(6, 0, -1)` (Basicamente 6 ate 1 multiplicado por `fator` defaut: 20):  
 ```Python
 pontos = cv.Canny(img, i*fator, i*fator*3)
 pontos = np.where(pontos != 0)

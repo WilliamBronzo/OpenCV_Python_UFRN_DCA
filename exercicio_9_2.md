@@ -52,6 +52,7 @@ def meu_kmeans(img):
     return res2
 
 ```
+Chamei essa função de `meu_kmeans`.  
 Como tambem pede que rode o algoritimo 10 vezes:
 ```Python
 for i in range(11):

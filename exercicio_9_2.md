@@ -87,6 +87,9 @@ if __name__ == '__main__':
 ```  
 
 O motivo do resultado diferir mas não muinto é porque o algoritimo de K-means é um algoritimo de Clusterização "*Clustering*" e sua convergencia é um local otimo não um global otimo. Por se trata de um algoritimo *NP-hardness* não deterministico.  
-Portanto se durante a inicialização do K-means não for bom, ele pode convergir para um local e não para um global otimo, neste caso a alteração do `cv.KMEANS_RANDOM_CENTERS` irá atrapalhar.
+
+Portanto se durante a inicialização do K-means não for bom, ele pode convergir para um local e não para um global otimo, neste caso a alteração do `cv.KMEANS_RANDOM_CENTERS` irá atrapalhar.  
+
 O outro problema que pode atrapalhar a convergencia, e o numero que o K-means irá roda para encontrar a convergencia otima, neste caso o valor de `nRodadas`.  
+
 Por não ser um algoritimo **não** deterministico, ele nem sempre irá dar o mesmo resultado. O que é esperado para um problema de clusterização.

@@ -87,7 +87,10 @@ def filtro_homomorfico(img, x_0, x_min, x_max, c, logs=True):
     filtro_return[:,:filtro_return.shape[1]//2] = filtro[:,:filtro_return.shape[1]//2]
     return normalizacao(np.exp(img_return)), filtro_return
 ```
-É aplicada antes do DFT da imagem é um log da imagem (de forma opcional não aplicar o log) uma sequencia de algoritimos:
+Segue a estrutura do `filtro_homomorfico`:
+![Grafico Homomórfico](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/Grafico%20Homo.png)
+
+Sequencia de algoritimos para fazer o filtro homomórfico:
  - Logaritmo da imagem:
 ```Python
 img_return = img + 1.

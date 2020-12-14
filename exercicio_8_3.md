@@ -78,5 +78,16 @@ def main():
 
     cv.waitKey()
 ```  
-Basta aplicar `bordar_random(img, ponto_img(img))` para que o resultado da imagem seja o desejado.
+Basta aplicar `bordar_random(img, ponto_img(img))` para que o resultado da imagem seja o desejado.  
 
+Demonstração:  
+![Imagem demo](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-12-14_18-05-50.jpg)  
+
+Errata: Nome da janela era para ser Gato.png não lena.png.  
+Dado a entrada (Janela a esquerda), a saida da função `ponto_img` é a janela do centro.  
+A implementação usando a função `bordar_random` com preenchimento do fundo da função `ponto_img` e o resultado da janela da direita (Saida).  
+
+Pode clicar na imagem para uma inspeção mais minuciosa. (Te leva a imagem com tamanho real e tem barra de rolagem abaixo).  
+
+Código:  
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_8_3.py

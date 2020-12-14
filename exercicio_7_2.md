@@ -188,6 +188,7 @@ A configuração do filtro é dificil devido a diversos algoritimos, incluindo a
 
 Demonstração:  
 [Youtube link](https://youtu.be/krfbq26AnVk) 10 min.
+[Youtube link](https://youtu.be/QH4TCLQRrOA) 1 min.
 
 O programa completo:  
 https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_7_2.py

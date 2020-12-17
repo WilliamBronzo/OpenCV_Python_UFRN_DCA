@@ -86,7 +86,11 @@ if __name__ == '__main__':
     main()
 ```  
 
-O motivo do resultado diferir mas não muinto é porque o algoritimo de K-means é um algoritimo de Clusterização "*Clustering*" e sua convergencia é um local otimo não um global otimo. Por se trata de um algoritimo *NP-hardness* não deterministico.  
+Rodando o programa irá produzir o seguinte resultados:  
+
+![Imagem](https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/Imagens/pycharm64_2020-12-17_16-35-58.png)
+
+O motivo do resultado diferir mas não muinto é porque o algoritimo de K-means é um algoritimo de Clusterização "*Clustering*" e sua convergencia é um local otimo não um global otimo. Por se trata de um algoritimo *NP-hardness* não deterministico. (Ex.: `Rodada 9` e `Rodada 10`)  
 
 Portanto se durante a inicialização do K-means não for bom, ele pode convergir para um local e não para um global otimo, neste caso a alteração do `cv.KMEANS_RANDOM_CENTERS` irá atrapalhar.  
 

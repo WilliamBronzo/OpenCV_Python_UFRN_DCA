@@ -97,3 +97,6 @@ Portanto se durante a inicialização do K-means não for bom, ele pode convergi
 O outro problema que pode atrapalhar a convergencia, e o numero que o K-means irá roda para encontrar a convergencia otima, neste caso o valor de `nRodadas`.  
 
 Por não ser um algoritimo **não** deterministico, ele nem sempre irá dar o mesmo resultado. O que é esperado para um problema de clusterização.
+
+Código:
+https://github.com/WilliamBronzo/OpenCV_Python_UFRN_DCA/blob/master/C%C3%B3digo/exercicio_9_2.py
